@@ -10,26 +10,23 @@ def working_api(request):
 
         return Response({ "message": "api is working"})
 
-@api_view(['GET', 'POST'])
+@api_view(['POST'])
 def awards_api(request):
-    value = request.headers['userID']
+    value = request.POST.get("userID")
     print('userid', value)
     try:
         awards = Awards.objects.filter(userID=value)
     except Awards.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
-    if request.method == 'GET':
-        serializer = AwardsSerializer(awards, many=True)
-        return Response(serializer.data)
-    elif request.method == 'POST':
-        serializer = AwardsSerializer(data=request.data)
-        if serializer.is_valid():
-            print(serializer, 'is valid')
-            serializer.save()
-        else:
-            print('it isnt valid!', request.headers)
-        return Response(serializer.data)
+    if request.method == 'POST':
+            serializer = AwardsSerializer(data=request.data)
+            if serializer.is_valid():
+                print(serializer, 'is valid')
+                serializer.save()
+            else:
+                print('it isnt valid!', request.headers)
+            return Response(serializer.data)
 
 @api_view(['GET', "DELETE"])
 def award_api(request, pk):

@@ -19,14 +19,17 @@ def awards_api(request):
     except Awards.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
-    if request.method == 'POST':
-            serializer = AwardsSerializer(data=request.data)
-            if serializer.is_valid():
-                print(serializer, 'is valid')
-                serializer.save()
-            else:
-                print('it isnt valid!', request.headers)
-            return Response(serializer.data)
+    if request.method == 'GET':
+        serializer = AwardsSerializer(awards, many=True)
+        return Response(serializer.data)
+    elif request.method == 'POST':
+        serializer = AwardsSerializer(data=request.data)
+        if serializer.is_valid():
+            print(serializer, 'is valid')
+            serializer.save()
+        else:
+            print('it isnt valid!', request.headers)
+        return Response(serializer.data)
 
 @api_view(['GET', "DELETE"])
 def award_api(request, pk):

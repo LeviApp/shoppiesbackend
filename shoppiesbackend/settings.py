@@ -27,7 +27,7 @@ SECRET_KEY = 'ly1xhz60z#!v9+9faxu%igc@%&&6%+$-f3*lldy%ohne(v*2(x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'https://shopify-shoppies.herokuapp.com/']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'shopify-shoppies.herokuapp.com']
 
 
 # Application definition

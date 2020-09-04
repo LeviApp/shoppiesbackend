@@ -10,9 +10,9 @@ def working_api(request):
 
         return Response({ "message": "api is working"})
 
-@api_view(['POST'])
+@api_view(['GET', 'POST'])
 def awards_api(request):
-    value = request.POST.get("userID")
+    value = request.headers['userID']
     print('userid', value)
     try:
         awards = Awards.objects.filter(userID=value)

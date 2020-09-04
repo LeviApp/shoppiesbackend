@@ -3,7 +3,7 @@ from shoppies.api.views import working_api, awards_api, award_api, awards_all_ap
 
 app_name = 'shoppies'
 urlpatterns = [
-    path(f'', working_api, name='working'),
+    path(f'/', working_api, name='working'),
 
     path(f'awards/', awards_api, name='awards'),
     path(f'awards/<str:pk>/', award_api, name='award'),

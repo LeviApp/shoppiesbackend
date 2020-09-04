@@ -5,6 +5,11 @@ from shoppies.api.serializers import AwardsSerializer
 from django.http import HttpResponse
 from rest_framework import status
 
+@api_view(['GET'])
+def working_api(request):
+
+        return Response({ "message": "api is working"})
+
 @api_view(['GET', 'POST'])
 def awards_api(request):
     value = request.headers['userID']

@@ -92,7 +92,11 @@ WSGI_APPLICATION = 'shoppiesbackend.wsgi.application'
 DATABASES = {
     'default': {
        'ENGINE': 'django.db.backends.postgresql',
-        os.getenv('DATABASE_URL')
+        'NAME': 'shopify',
+        'USER': 'leviapp',
+        'PASSWORD': '8Catapult!9Tree!',
+        'HOST': 'shopify-shoppies.herokuapp.com',
+        'PORT': '5432',
     }
 }
 

@@ -92,7 +92,7 @@ WSGI_APPLICATION = 'shoppiesbackend.wsgi.application'
 DATABASES = {
     'default': {
        'ENGINE': 'django.db.backends.postgresql',
-        'DATABASE_URL': os.getenv('DATABASE_URL')
+        os.getenv('DATABASE_URL')
     }
 }
 

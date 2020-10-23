@@ -12,7 +12,8 @@ def working_api(request):
 
 @api_view(['GET', 'POST'])
 def awards_api(request):
-    value = request.headers['userID']
+    value = request.GET.get('userID', )
+
     print('userid', value)
     try:
         awards = Awards.objects.filter(userID=value)
@@ -28,7 +29,7 @@ def awards_api(request):
             print(serializer, 'is valid')
             serializer.save()
         else:
-            print('it isnt valid!', request.headers)
+            print('it isnt valid!')
         return Response(serializer.data)
 
 @api_view(['GET', "DELETE"])
@@ -51,7 +52,8 @@ def award_api(request, pk):
 
 @api_view(['GET'])
 def awards_all_api(request):
-    value = request.headers['role']
+    value = request.GET.get('role', )
+
     try:
         awards = Awards.objects.all()
         print('it is in the IFFY', value == "admin")

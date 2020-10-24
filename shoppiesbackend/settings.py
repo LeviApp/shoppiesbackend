@@ -151,3 +151,7 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_HEADERS = list(default_headers) + [
     'userID', 'role'
 ]
+
+# Configure Django App for Heroku.
+import django_heroku
+django_heroku.settings(locals())

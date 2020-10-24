@@ -95,7 +95,7 @@ DATABASES = {
         'NAME': 'shopify',
         'USER': 'leviapp',
         'PASSWORD': '8Catapult!9Tree!',
-        'HOST': 'localhost',
+        'HOST': 'shopify-shoppies.herokuapp.com',
         'PORT': '5432',
     }
 }
@@ -151,7 +151,3 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_HEADERS = list(default_headers) + [
     'userID', 'role'
 ]
-
-# Configure Django App for Heroku.
-import django_heroku
-django_heroku.settings(locals())

@@ -95,7 +95,7 @@ DATABASES = {
         'NAME': 'shopify',
         'USER': 'leviapp',
         'PASSWORD': '8Catapult!9Tree!',
-        'HOST': 'shopify-shoppies.herokuapp.com',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }

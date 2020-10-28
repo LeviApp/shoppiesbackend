@@ -12,7 +12,7 @@ def working_api(request):
 
 @api_view(['GET', 'POST'])
 def awards_api(request):
-    value = request.GET.get('userID', )
+    value = request.headers['userID']
 
     print('userid', value)
     try:
@@ -52,7 +52,7 @@ def award_api(request, pk):
 
 @api_view(['GET'])
 def awards_all_api(request):
-    value = request.GET.get('role', )
+    value = request.headers['role']
 
     try:
         awards = Awards.objects.all()

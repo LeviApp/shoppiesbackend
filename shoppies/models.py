@@ -4,7 +4,7 @@ from django.contrib.postgres.fields import ArrayField, JSONField
 # Create your models here.
 
 class Awards(models.Model):
-    userID = models.CharField(max_length=20, default="----")
+    userID = models.CharField(max_length=30, default="----")
     Poster = models.TextField(default="----")
     Title = models.CharField(max_length=200, default="----")
     Type = models.CharField(max_length=20, default="----")

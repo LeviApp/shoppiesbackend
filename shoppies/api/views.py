@@ -29,8 +29,10 @@ def awards_api(request):
             print(serializer, 'is valid')
             serializer.save()
         else:
-            print('it isnt valid!')
+            print('it isnt valid!', serializer.errors)
         return Response(serializer.data)
+
+
 
 @api_view(['GET', "DELETE"])
 def award_api(request, pk):
